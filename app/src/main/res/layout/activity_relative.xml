@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/cp_icon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:src="@drawable/cp_icon" />
+
+
+    <TextView
+        android:id="@+id/login_intro"
+        android:layout_below="@id/cp_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="30dp"
+        android:textSize="20sp"
+        android:text="@string/login_intro"/>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_intro"
+        android:layout_above="@id/submit">
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username_hint"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="18dp"
+            />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/submit_button"
+        android:layout_alignParentBottom="true"
+    />
+
+</RelativeLayout>

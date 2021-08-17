@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/cp_icon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="@dimen/logo_margin_top"
+        android:src="@drawable/cp_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/login_intro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:gravity="center"
+        android:text="@string/login_intro"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/cp_icon"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:hint="@string/username_hint"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/login_intro" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="@string/password_hint"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/submit_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
