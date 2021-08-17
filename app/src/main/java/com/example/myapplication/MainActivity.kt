@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import com.example.myapplication.listeners.OnClickSubmitListener
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -26,12 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         Toast.makeText(this, "Activity entrou no onResume", Toast.LENGTH_LONG).show()
         val button = findViewById<Button>(R.id.submit)
-        button.setOnClickListener(View.OnClickListener { view ->
-            Snackbar.make(button, "Botão clicado!", Snackbar.LENGTH_SHORT)
-                .setAction("OK", View.OnClickListener {
-                    Snackbar.make(rootView, "OK clicado", Snackbar.LENGTH_SHORT).show()
-                }).show()
-        })
+        button.setOnClickListener(OnClickSubmitListener(rootView))
     }
 
     override fun onBackPressed() {
