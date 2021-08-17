@@ -1,7 +1,3 @@
 <resources>
-    <string name="app_name">Aula 1</string>
-    <string name="login_intro">Por favor, faça o login</string>
-    <string name="username_hint">Nome de usuário</string>
-    <string name="password_hint">Senha</string>
-    <string name="submit_button">Enviar</string>
+    <string name="app_name">My Application</string>
 </resources>
