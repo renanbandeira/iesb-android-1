@@ -1,14 +1,11 @@
-package com.example.myapplication
+package com.example.myapplication.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
-import com.example.myapplication.listeners.OnClickSubmitListener
-import com.google.android.material.snackbar.Snackbar
+import com.example.myapplication.R
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,8 +23,6 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Toast.makeText(this, "Activity entrou no onResume", Toast.LENGTH_LONG).show()
-        val button = findViewById<Button>(R.id.submit)
-        button.setOnClickListener(OnClickSubmitListener(rootView))
     }
 
     override fun onBackPressed() {
