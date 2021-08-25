@@ -15,14 +15,19 @@ class AuthViewModel(private val authRepository: AuthRepository) : ViewModel() {
         GitHub("GitHub")
     }
     val authButtonLiveData = MutableLiveData<EventWrapper<SignInType>>()
-    var authenticatedUserLiveData = MutableLiveData<User>()
+    val authenticatedUserLiveData = MutableLiveData<User>()
+    val createdUserLiveData = MutableLiveData<User>()
 
     fun handleGoogleSignInClick() {
         authButtonLiveData.value = EventWrapper(SignInType.Google)
     }
 
     fun signInWithGoogle(googleAuthCredential: AuthCredential) {
-        authenticatedUserLiveData = authRepository.firebaseSignInWithGoogle(googleAuthCredential)
+        authRepository.firebaseSignInWithGoogle(googleAuthCredential, authenticatedUserLiveData)
+    }
+
+    fun createUser(user: User) {
+        authRepository.createUserInFirestoreIfNotExists(user, createdUserLiveData)
     }
 
     class AuthViewModelFactory(private val authRepository: AuthRepository): ViewModelProvider.Factory {

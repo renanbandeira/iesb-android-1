@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityAuthBinding
 import com.example.myapplication.model.AuthRepository
+import com.example.myapplication.model.User
 import com.example.myapplication.viewmodel.AuthViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -51,7 +52,15 @@ class AuthActivity : AppCompatActivity() {
         }
 
         authViewModel.authenticatedUserLiveData.observe(this) { user ->
-            Log.d("user", user.email?: "Sem Email")
+            if (user.isNew) {
+                authViewModel.createUser(user)
+            } else {
+                goToMainActivity(user)
+            }
+        }
+
+        authViewModel.createdUserLiveData.observe(this) { user ->
+            goToMainActivity(user)
         }
 
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -69,6 +78,12 @@ class AuthActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun goToMainActivity(user: User) {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra(MainActivity.USER_EXTRA, user)
+        startActivity(intent)
     }
 
     private fun getGoogleAuthCredential(googleAccount: GoogleSignInAccount) {
