@@ -28,7 +28,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.user = intent.getSerializableExtra(USER_EXTRA) as User
+        val sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE)
+        val name = sharedPreferences.getString("user", "Outro")
+
+        binding.user = User(uid = "1", name = name) // intent.getSerializableExtra(USER_EXTRA) as User
 
         viewModel = ViewModelProvider(this, MainViewModel.MainViewModelFactory(MainRepository()))
             .get(MainViewModel::class.java)
